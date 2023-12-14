@@ -27,7 +27,9 @@ jobs:
               `
             })
       - name: Terminate
-        run: exit 1
+        run: |
+          echo "${{ ! contains(github.event.pull_request.labels.*.name, 'preview') }}"
+          exit 1
 
   run-e2e-tests:
     if: contains(github.event.comment.body, '/e2e') && ${{ contains(github.event.pull_request.labels.*.name, 'preview') }}
@@ -35,5 +37,6 @@ jobs:
     steps:
       - name: echo
         run: |
+          echo "${{ contains(github.event.pull_request.labels.*.name, 'preview') }}"
           echo "${{ github.event.issue.number }}"
 
