@@ -31,7 +31,7 @@ jobs:
         exit 1
 
   run-e2e-tests:
-    if: contains(github.event.comment.body, '/e2e') && contains(github.event.pull_request.labels.*.name, 'preview')
+    #if: contains(github.event.comment.body, '/e2e') && contains(github.event.pull_request.labels.*.name, 'preview')
     runs-on: ubuntu-latest
     steps:
     - name: echo
