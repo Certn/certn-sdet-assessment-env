@@ -6,10 +6,10 @@ on:
 
 jobs:
   check-for-preview-env:
-    if: contains(github.event.comment.body, '/e2e') && ${{ ! contains(github.event.pull_request.labels.*.name, 'preview') }}
     runs-on: ubuntu-latest
     steps:
     - name: Post Comment
+      if: contains(github.event.comment.body, '/e2e') && ${{ ! contains(github.event.pull_request.labels.*.name, 'preview') }}
       uses: actions/github-script@v6
       with:
         script: |
@@ -24,6 +24,7 @@ jobs:
             `
           })
     - name: Terminate
+      if: contains(github.event.comment.body, '/e2e') && ${{ ! contains(github.event.pull_request.labels.*.name, 'preview') }}
       run: |
         echo ${{ github.event.comment.body }}
         echo ${{ contains(github.event.pull_request.labels.*.name, 'preview') }}
@@ -31,10 +32,10 @@ jobs:
         exit 1
 
   run-e2e-tests:
-    #if: contains(github.event.comment.body, '/e2e') && contains(github.event.pull_request.labels.*.name, 'preview')
     runs-on: ubuntu-latest
     steps:
     - name: echo
+      if: contains(github.event.comment.body, '/e2e') && contains(github.event.pull_request.labels.*.name, 'preview')
       run: |
         echo ${{ github.event.comment.body }}
         echo ${{ contains(github.event.pull_request.labels.*.name, 'preview') }}
