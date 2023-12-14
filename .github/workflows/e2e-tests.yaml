@@ -30,17 +30,17 @@ jobs:
         run: |
           echo ${{ github.event.comment.body }}
           echo ${{ ! contains(github.event.pull_request.labels.*.name, 'preview') }}
-          echo ${{ ${{ contains(github.event.comment.body, '/e2e') }} && ${{ ! contains(github.event.pull_request.labels.*.name, 'preview') }} }}
+          echo ${{ contains(github.event.comment.body, '/e2e') }} && ${{ ! contains(github.event.pull_request.labels.*.name, 'preview') }} 
           exit 1
 
   run-e2e-tests:
-    if: contains(github.event.comment.body, '/e2e') && ${{ contains(github.event.pull_request.labels.*.name, 'preview') }}
+    if: contains(github.event.comment.body, '/e2e') && contains(github.event.pull_request.labels.*.name, 'preview')
     runs-on: ubuntu-latest
     steps:
       - name: echo
         run: |
           echo ${{ github.event.comment.body }}
           echo ${{ contains(github.event.pull_request.labels.*.name, 'preview') }}
-          echo ${{ ${{ contains(github.event.comment.body, '/e2e') }} && ${{ contains(github.event.pull_request.labels.*.name, 'preview') }} }}
+          echo ${{ contains(github.event.comment.body, '/e2e') }} && ${{ contains(github.event.pull_request.labels.*.name, 'preview') }}
           echo ${{ github.event.issue.number }}
-
+          echo ${{ github.event.pull_request.number }}
