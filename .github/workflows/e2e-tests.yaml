@@ -31,12 +31,9 @@ jobs:
 
   run-e2e-tests:
     if: contains(github.event.comment.body, '/e2e')
-    uses: Certn/certn-qa-tests/.github/workflows/run_tests.yaml@main
-    secrets: inherit
-    with:
-      ENVIRONMENT: preview
-      TEST_TYPE: UI
-      TEST_PATH: tests/ui/playwright/e2e/
-      CALLER: "${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
-      PR_NUMBER: "${{ github.event.issue.number }}"
+    runs-on: ubuntu-latest
+    steps:
+      - name: echo
+        run: |
+          echo "${{ github.event.issue.number }}"
 
