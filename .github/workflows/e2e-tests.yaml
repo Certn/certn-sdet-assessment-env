@@ -40,5 +40,6 @@ jobs:
         run: |
           echo ${{ github.event.comment.body }}
           echo ${{ contains(github.event.pull_request.labels.*.name, 'preview') }}
+          echo ${{ ! contains(github.event.pull_request.labels.*.name, 'preview') }}
           echo ${{ github.event.issue.number }}
           echo ${{ github.event.pull_request.number }}
