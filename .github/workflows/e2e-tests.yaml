@@ -30,6 +30,16 @@ jobs:
         echo ${{ ! contains(github.event.issue.labels.*.name, 'preview') }}
         exit 1
 
+  poll-api-health:
+    if: ${{ contains(github.event.comment.body, '/e2e') && contains(github.event.issue.labels.*.name, 'preview') }}
+    uses: artiz/poll-endpoint@1.0.2
+    with:
+      url: https://dummy.restapiexample.com/api/v1/employees
+      method: GET
+      expect-status: 200
+      timeout: 60000
+      interval: 5000
+
   run-e2e-tests:
     if: ${{ contains(github.event.comment.body, '/e2e') && contains(github.event.issue.labels.*.name, 'preview') }}
     runs-on: ubuntu-latest
