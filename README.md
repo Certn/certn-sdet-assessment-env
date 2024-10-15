@@ -34,6 +34,7 @@ However, you can always run via the command line or script provided:
 - **macOS**: Run `unix-run-[TOOL]-tests` in Terminal. Alternatively, you can
   double-click it in Finder and bypass the warnings.
 - **Linux**: Run `./unix-run-[TOOL]-tests`
+
 where `TOOL` can be either `playwright` or `selenium`.
 
 ## Your Task
