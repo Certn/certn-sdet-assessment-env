@@ -1,4 +1,4 @@
 selenium
 pytest
-Faker
+pytest-playwright
 webdriver-manager

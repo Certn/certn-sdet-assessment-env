@@ -5,7 +5,7 @@
 You must have installed,
 
 - Google Chrome
-- Python 3.8+
+- Python 3.11+
 - Git
 
 If you wish to use a different web browser and need help doing so, please ask
