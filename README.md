@@ -5,7 +5,7 @@
 You must have installed,
 
 - Google Chrome
-- Python 3.8+
+- Python 3.11+
 - Git
 
 If you wish to use a different web browser and need help doing so, please ask
@@ -28,20 +28,21 @@ impact your system installation of browsers and/or Python.
 Depending on your IDE and configuration, you may be able to run tests directly
 from the IDE.
 
-However, as a backup, you can always run via the command line or script
-provided.
-
-- **Windows**: Open this folder and double-click the `windows-run-tests.bat` file
-- **macOS**: Run `unix-run-tests` in Terminal. Alternatively, you can
+However, you can always run via the command line or script provided:
+- **Windows**: Open this folder and double-click the `windows-run-[TOOL]-test.bat`
+  file
+- **macOS**: Run `unix-run-[TOOL]-tests` in Terminal. Alternatively, you can
   double-click it in Finder and bypass the warnings.
-- **Linux**: Run `./unix-run-tests`
+- **Linux**: Run `./unix-run-[TOOL]-tests`
+
+where `TOOL` can be either `playwright` or `selenium`.
 
 ## Your Task
 
-You will know environment setup is successful and ready for you to begin the
-assessment when:
+Currently, there is a missing implementation in the test. You'll find a test file
+that uses either Playwright or Selenium.
 
-- Running the tests results in 2 failures (`NotImplementedError`)
+- Running the tests results in 1 failure (`NotImplementedError`)
 - Running the tests results in 0 errors
 - Two browser windows should briefly appear
 
