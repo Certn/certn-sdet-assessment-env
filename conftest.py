@@ -11,7 +11,7 @@ from webdriver_manager.chrome import ChromeDriverManager
 
 @pytest.fixture
 def client_email() -> str:
-    return "terry.chiu+client@certn.co"
+    return "qe.prospect@assertn.testinator.com"
 
 
 @pytest.fixture
