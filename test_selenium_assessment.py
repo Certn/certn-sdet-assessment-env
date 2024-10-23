@@ -5,8 +5,8 @@ from selenium.webdriver.common.by import By
 
 
 def enter_username(webdriver: webdriver.Remote, username: str):
-    webdriver.find_element(By.CSS_SELECTOR, "input#username").click()
-    webdriver.find_element(By.CSS_SELECTOR, "input#username").send_keys(
+    webdriver.find_element(By.CSS_SELECTOR, "input").click()
+    webdriver.find_element(By.CSS_SELECTOR, "input").send_keys(
         username
     )
     webdriver.find_elements(By.CSS_SELECTOR, "button[type=submit]")[0].click()
@@ -34,6 +34,7 @@ def test_with_selenium__sign_in_to_client_portal(
     # - `client_email` is an email address you can safely use for the test    #
     # - `client_password` is a password                                       #
     # - the above are provided by pytest fixtures in the conftest.py file     #
+    # - NOTE: The existing code is not guaranteed to work!                    #
     # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
     
     enter_username(selenium_webdriver_with_chrome, client_email)
